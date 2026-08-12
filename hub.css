@@ -36,3 +36,16 @@ body::before { content:""; position:absolute; inset:0; min-height:100%; z-index:
 .hero h1 { color:#282b45; }.hero h1 span { color:#6176d9; }
 .intro { color:#666b80; }.scroll-cue { color:var(--ink); }.scroll-cue b { color:var(--red); }
 .project-card { border-radius:12px; background:rgba(248,246,242,.78); box-shadow:0 10px 28px rgba(66,70,100,.08); }.idea-art { background:linear-gradient(135deg,#d6d4ee,#c9d9ef); }.idea-art.alt { background:linear-gradient(135deg,#efd1d8,#d9d8ef); }.idea-art.third { background:linear-gradient(135deg,#cbe5dc,#d3dcef); }.idea-art span { color:rgba(32,36,58,.3); }
+
+/* Sleek black theme */
+:root { --ink:#f5f5f5; --muted:#989898; --line:rgba(255,255,255,.14); --blue:#879bff; --red:#ff5c76; }
+body { color:var(--ink); background:#080808; }
+body::before { opacity:.22; background-image:radial-gradient(#fff .7px,transparent .7px); background-size:32px 32px; mask-image:linear-gradient(to bottom,#000,transparent 78%); }
+.glow { opacity:.16; }.glow-one { background:#d62f55; }.glow-two { background:#3457d5; }
+.logo-name { color:#f5f5f5; }.about-link { color:#f5f5f5; }.about-link:hover { color:var(--red); }
+.hero h1 { color:#f5f5f5; }.hero h1 span { background:linear-gradient(100deg,#ff4e6b,#ff7184 38%,#8296ff 82%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.intro { color:#a7a7a7; }.scroll-cue { color:#f5f5f5; }
+.section-heading { border-color:var(--line); }.section-heading h2 { color:#f5f5f5; }.section-heading h2 span { color:#777; }
+.project-card { border-color:var(--line); background:rgba(255,255,255,.055); box-shadow:0 16px 38px rgba(0,0,0,.28); }.project-card:hover { border-color:rgba(255,255,255,.4); }.idea-art { background:linear-gradient(135deg,#171525,#101b32); }.idea-art.alt { background:linear-gradient(135deg,#21131b,#17162e); }.idea-art.third { background:linear-gradient(135deg,#102522,#11192c); }.idea-art span { color:rgba(255,255,255,.35); }
+.about h2 { color:#f5f5f5; }.about p:last-child { color:#a7a7a7; }.about { border-color:var(--line); }
+footer { color:#707070; }
