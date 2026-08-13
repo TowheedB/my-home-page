@@ -86,7 +86,14 @@
 
     const gameCard = document.querySelector('.featured');
     const gameModal = document.querySelector('#game-modal');
-    const closeGame = () => { gameModal.hidden = true; document.body.classList.remove('modal-open'); gameCard.focus(); };
+    const gameFrame = gameModal.querySelector('iframe');
+    const gameUrl = gameFrame.src;
+    const closeGame = () => {
+      gameModal.hidden = true;
+      document.body.classList.remove('modal-open');
+      gameFrame.src = gameUrl;
+      gameCard.focus();
+    };
     gameCard.addEventListener('click', () => { gameModal.hidden = false; document.body.classList.add('modal-open'); gameModal.querySelector('.close-game').focus(); });
     gameModal.querySelectorAll('[data-close-game]').forEach((element) => element.addEventListener('click', closeGame));
     document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && !gameModal.hidden) closeGame(); });
