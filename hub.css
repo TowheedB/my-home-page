@@ -53,6 +53,11 @@ footer { color:#707070; }
 /* Embedded game window */
 .featured { cursor:pointer; font:inherit; text-align:left; }
 .card-subtitle { margin:5px 0 0; color:#9d9dab; font-size:clamp(10px,1.3vw,13px); }
+.restaurant-card { cursor:pointer; font:inherit; text-align:left; }
+.restaurant-art { position:relative; display:grid; place-items:center; color:#f5d7a0; background:radial-gradient(circle at 50% 45%,#513522 0,#261b1b 48%,#111018 100%); }
+.restaurant-art::before { content:""; position:absolute; inset:14%; border:1px solid rgba(245,215,160,.45); border-radius:50%; box-shadow:0 0 35px rgba(245,180,100,.2); }
+.restaurant-art span { position:relative; z-index:1; font-size:clamp(35px,5vw,58px); text-shadow:0 0 22px rgba(245,180,100,.7); }
+.restaurant-art b { position:absolute; bottom:13%; color:rgba(245,215,160,.75); font:600 clamp(9px,1.3vw,13px) 'Space Grotesk',sans-serif; letter-spacing:4px; }
 .neon-art { display:grid; place-items:center; background:radial-gradient(circle at 50% 45%,#243d84 0,#121d45 48%,#090b18 100%); }
 .neon-art::before { content:""; position:absolute; inset:0; background:linear-gradient(115deg,transparent 25%,rgba(255,79,119,.16),transparent 65%); }
 .neon-board { position:relative; z-index:1; width:min(52%,220px); aspect-ratio:1; display:grid; grid-template-columns:repeat(3,1fr); padding:4%; border:2px solid #667fff; border-radius:10px; box-shadow:0 0 14px #4c6cff, inset 0 0 20px rgba(82,112,255,.35); transform:rotate(-4deg); }
