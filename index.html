@@ -44,7 +44,10 @@
           <div class="card-art restaurant-art" aria-hidden="true"><span>✦</span><b>ORBITAL</b></div>
           <div class="card-info"><div><p class="card-kicker">WEB EXPERIENCE · 2026</p><h3>The Restaurant Webpage</h3><p class="card-subtitle">The Orbital Restaurant</p></div><span class="arrow">↗</span></div>
         </button>
-        <div class="project-card coming-soon"><div class="card-art idea-art alt"><span>+</span></div><div class="card-info"><div><p class="card-kicker">UP NEXT</p><h3>Stay curious</h3></div><span class="number">03</span></div></div>
+        <button class="project-card memory-card" type="button" aria-haspopup="dialog" aria-controls="memory-modal">
+          <div class="card-art idea-art alt" aria-hidden="true"><span>♢</span></div>
+          <div class="card-info"><div><p class="card-kicker">GAME · 2026</p><h3>The Memory Game</h3><p class="card-subtitle">The Fantastic Flyers</p></div><span class="arrow">↗</span></div>
+        </button>
         <div class="project-card coming-soon"><div class="card-art idea-art third"><span>+</span></div><div class="card-info"><div><p class="card-kicker">UP NEXT</p><h3>In the works</h3></div><span class="number">04</span></div></div>
       </div>
     </section>
@@ -62,6 +65,14 @@
       <div class="game-window">
         <div class="game-window-bar"><h2 id="restaurant-modal-title">The Restaurant Webpage</h2><button class="close-game" type="button" aria-label="Close restaurant webpage" data-close-restaurant>×</button></div>
         <iframe title="The Orbital Restaurant" src="https://orbital-restaurant.vercel.app/"></iframe>
+      </div>
+    </div>
+
+    <div class="game-modal" id="memory-modal" role="dialog" aria-modal="true" aria-labelledby="memory-modal-title" hidden>
+      <div class="game-modal-backdrop" data-close-memory></div>
+      <div class="game-window">
+        <div class="game-window-bar"><h2 id="memory-modal-title">The Memory Game</h2><button class="close-game" type="button" aria-label="Close memory game" data-close-memory>×</button></div>
+        <iframe title="The Memory Game — The Fantastic Flyers" src="https://memory-card-game-3bro.vercel.app"></iframe>
       </div>
     </div>
 
@@ -120,10 +131,24 @@
     };
     restaurantCard.addEventListener('click', () => { restaurantModal.hidden = false; document.body.classList.add('modal-open'); restaurantModal.querySelector('.close-game').focus(); });
     restaurantModal.querySelectorAll('[data-close-restaurant]').forEach((element) => element.addEventListener('click', closeRestaurant));
+    const memoryCard = document.querySelector('.memory-card');
+    const memoryModal = document.querySelector('#memory-modal');
+    const memoryFrame = memoryModal.querySelector('iframe');
+    const memoryUrl = memoryFrame.src;
+    const closeMemory = () => {
+      memoryModal.hidden = true;
+      document.body.classList.remove('modal-open');
+      memoryFrame.src = memoryUrl;
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      memoryCard.focus();
+    };
+    memoryCard.addEventListener('click', () => { memoryModal.hidden = false; document.body.classList.add('modal-open'); memoryModal.querySelector('.close-game').focus(); });
+    memoryModal.querySelectorAll('[data-close-memory]').forEach((element) => element.addEventListener('click', closeMemory));
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
         if (!gameModal.hidden) closeGame();
         if (!restaurantModal.hidden) closeRestaurant();
+        if (!memoryModal.hidden) closeMemory();
       }
     });
   </script>

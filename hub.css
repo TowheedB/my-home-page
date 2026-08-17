@@ -54,6 +54,7 @@ footer { color:#707070; }
 .featured { cursor:pointer; font:inherit; text-align:left; }
 .card-subtitle { margin:5px 0 0; color:#9d9dab; font-size:clamp(10px,1.3vw,13px); }
 .restaurant-card { cursor:pointer; font:inherit; text-align:left; }
+.memory-card { cursor:pointer; font:inherit; text-align:left; }
 .restaurant-art { position:relative; display:grid; place-items:center; color:#f5d7a0; background:radial-gradient(circle at 50% 45%,#513522 0,#261b1b 48%,#111018 100%); }
 .restaurant-art::before { content:""; position:absolute; inset:14%; border:1px solid rgba(245,215,160,.45); border-radius:50%; box-shadow:0 0 35px rgba(245,180,100,.2); }
 .restaurant-art span { position:relative; z-index:1; font-size:clamp(35px,5vw,58px); text-shadow:0 0 22px rgba(245,180,100,.7); }
