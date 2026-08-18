@@ -29,7 +29,7 @@
 
     <section class="projects" id="projects" aria-labelledby="projects-title">
       <div class="section-heading">
-        <div><p class="eyebrow">SELECTED WORK</p><h2 id="projects-title">Projects <span>(04)</span></h2></div>
+        <div><p class="eyebrow">SELECTED WORK</p><h2 id="projects-title">Projects <span>(05)</span></h2></div>
       </div>
 
       <div class="project-grid">
@@ -47,6 +47,10 @@
         <button class="project-card memory-card" type="button" aria-haspopup="dialog" aria-controls="memory-modal">
           <div class="card-art idea-art alt" aria-hidden="true"><span>♢</span></div>
           <div class="card-info"><div><p class="card-kicker">GAME · 2026</p><h3>The Memory Game</h3><p class="card-subtitle">The Fantastic Flyers</p></div><span class="arrow">↗</span></div>
+        </button>
+        <button class="project-card mario-card" type="button" aria-haspopup="dialog" aria-controls="mario-modal">
+          <div class="card-art idea-art mario-art" aria-hidden="true"><span>★</span></div>
+          <div class="card-info"><div><p class="card-kicker">GAME · 2026</p><h3>The Mario Game</h3><p class="card-subtitle">Two Levels</p></div><span class="arrow">↗</span></div>
         </button>
         <div class="project-card coming-soon"><div class="card-art idea-art third"><span>+</span></div><div class="card-info"><div><p class="card-kicker">UP NEXT</p><h3>In the works</h3></div><span class="number">04</span></div></div>
       </div>
@@ -73,6 +77,14 @@
       <div class="game-window">
         <div class="game-window-bar"><h2 id="memory-modal-title">The Memory Game</h2><button class="close-game" type="button" aria-label="Close memory game" data-close-memory>×</button></div>
         <iframe title="The Memory Game — The Fantastic Flyers" src="https://memory-card-game-3bro.vercel.app"></iframe>
+      </div>
+    </div>
+
+    <div class="game-modal" id="mario-modal" role="dialog" aria-modal="true" aria-labelledby="mario-modal-title" hidden>
+      <div class="game-modal-backdrop" data-close-mario></div>
+      <div class="game-window">
+        <div class="game-window-bar"><h2 id="mario-modal-title">The Mario Game</h2><button class="close-game" type="button" aria-label="Close Mario game" data-close-mario>×</button></div>
+        <iframe title="The Mario Game — Two Levels" src="https://mario-game-ruby.vercel.app"></iframe>
       </div>
     </div>
 
@@ -144,11 +156,25 @@
     };
     memoryCard.addEventListener('click', () => { memoryModal.hidden = false; document.body.classList.add('modal-open'); memoryModal.querySelector('.close-game').focus(); });
     memoryModal.querySelectorAll('[data-close-memory]').forEach((element) => element.addEventListener('click', closeMemory));
+    const marioCard = document.querySelector('.mario-card');
+    const marioModal = document.querySelector('#mario-modal');
+    const marioFrame = marioModal.querySelector('iframe');
+    const marioUrl = marioFrame.src;
+    const closeMario = () => {
+      marioModal.hidden = true;
+      document.body.classList.remove('modal-open');
+      marioFrame.src = marioUrl;
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      marioCard.focus();
+    };
+    marioCard.addEventListener('click', () => { marioModal.hidden = false; document.body.classList.add('modal-open'); marioModal.querySelector('.close-game').focus(); });
+    marioModal.querySelectorAll('[data-close-mario]').forEach((element) => element.addEventListener('click', closeMario));
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
         if (!gameModal.hidden) closeGame();
         if (!restaurantModal.hidden) closeRestaurant();
         if (!memoryModal.hidden) closeMemory();
+        if (!marioModal.hidden) closeMario();
       }
     });
   </script>
